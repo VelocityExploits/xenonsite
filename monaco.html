@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenon Executor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #1A0030, #003D7A);
+            color: #FFFFFF;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            font-size: 1.2em;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+            padding: 5px 10px;
+        }
+
+        .nav a:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: transform 0.3s ease, perspective 0.3s ease;
+        }
+
+        h1:hover {
+            transform: perspective(500px) rotateY(15deg);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 15px;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #6a0dad;
+        }
+
+        .btn-secondary {
+            background-color: #555555;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="https://discord.com/invite/your-invite-link" target="_blank">Discord</a>
+        <a href="#key-system">Key System</a>
+    </div>
+    <div class="container">
+        <h1>Xenon</h1>
+        <p>Level 7 roblox executor, with a fantastic UI and easy to use.</p>
+        <a href="#" class="btn-primary">Download Now</a>
+        <a href="#" class="btn-secondary">Join Discord</a>
+    </div>
+
+    </footer>
+</body>
+</html>
