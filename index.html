@@ -4,113 +4,240 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xenon Executor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(135deg, #1A0030, #003D7A);
-            color: #FFFFFF;
+            background: linear-gradient(45deg, #220044, #0a0022);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            color: white;
             text-align: center;
             overflow: hidden;
         }
-
-        .nav {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            gap: 20px;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
-        .nav a {
-            font-size: 1.2em;
-            color: #FFFFFF;
-            text-decoration: none;
-            transition: transform 0.3s ease, text-shadow 0.3s ease;
-            padding: 5px 10px;
+        .container, .bottom-info {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
         }
-
-        .nav a:hover {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
-
         .container {
             max-width: 800px;
-            padding: 20px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            position: relative;
             z-index: 1;
+            margin-top: 50px;
+            transform: perspective(1000px) rotateX(0) rotateY(0);
+            transition: transform 0.2s;
         }
-
-        h1 {
-            font-size: 5em;
+        .logo {
+            width: 150px;
             margin-bottom: 20px;
-            font-weight: bold;
-            transition: transform 0.3s ease, perspective 0.3s ease;
         }
-
-        h1:hover {
-            transform: perspective(500px) rotateY(15deg);
+        .header-text {
+            font-size: 3em;
+            margin: 0;
         }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: #e0e0e0;
+        .sub-text {
+            font-size: 1.5em;
+            color: #00aaff;
+            margin: 0;
         }
-
-        .btn-primary,
-        .btn-secondary {
-            padding: 15px 30px;
-            font-size: 1em;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-right: 15px;
-            display: inline-block;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .description {
+            margin: 20px 0;
         }
-
-        .btn-primary {
-            background-color: #6a0dad;
-        }
-
-        .btn-secondary {
-            background-color: #555555;
-        }
-
-        .btn-primary:hover,
-        .btn-secondary:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        footer {
-            position: absolute;
-            bottom: 10px;
+        .executor {
             width: 100%;
-            text-align: center;
-            color: #888888;
+            max-width: 500px;
+            height: auto;
+            margin: 20px auto;
+            background: url('XenonExec.png') no-repeat center center;
+            background-size: contain;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .buttons a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 220px;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .buttons a:hover {
+            background-color: white;
+            color: #6a00ff;
+            transform: scale(1.05);
+        }
+        .bottom-info {
+            margin-top: 50px;
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            transition: transform 0.2s;
+        }
+        .highlight {
+            color: #00aaff;
+        }
+        .stars {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 
+                724px 172px #fff,
+                741px 68px #fff,
+                513px 131px #fff,
+                755px 582px #fff,
+                779px 1057px #fff,
+                1474px 131px #fff,
+                162px 978px #fff,
+                273px 1277px #fff,
+                206px 364px #fff,
+                942px 1228px #fff,
+                1557px 497px #fff,
+                1051px 1104px #fff,
+                1317px 1283px #fff,
+                567px 1290px #fff,
+                1543px 599px #fff,
+                700px 960px #fff,
+                214px 151px #fff,
+                180px 38px #fff,
+                1487px 358px #fff,
+                890px 228px #fff,
+                1467px 133px #fff,
+                338px 1287px #fff,
+                130px 353px #fff,
+                978px 1064px #fff,
+                1426px 133px #fff,
+                148px 557px #fff,
+                1237px 1288px #fff,
+                1096px 1330px #fff,
+                276px 975px #fff,
+                1154px 159px #fff,
+                1475px 398px #fff,
+                298px 474px #fff,
+                1127px 205px #fff,
+                120px 1378px #fff,
+                764px 229px #fff,
+                1410px 586px #fff,
+                1021px 324px #fff,
+                1157px 10px #fff,
+                409px 324px #fff,
+                875px 1244px #fff,
+                1403px 440px #fff,
+                1037px 1313px #fff,
+                1290px 1100px #fff,
+                1245px 842px #fff,
+                1363px 439px #fff,
+                1442px 220px #fff,
+                988px 19px #fff,
+                22px 61px #fff,
+                324px 540px #fff,
+                1144px 437px #fff;
+            animation: animStar 50s linear infinite;
+        }
+        @keyframes animStar {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-2000px);
+            }
+        }
+        .mouse-effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .mouse-effects div {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <a href="https://discord.gg/gWt4vn5sVZ" target="_blank">Discord</a>
-        <a href="https://direct-link.net/1217283/xenon-key" target="_blank">Key System</a>
-    </div>
+    <div class="stars"></div>
+    <div class="mouse-effects"></div>
     <div class="container">
-        <h1>Xenon</h1>
-        <p>Level 7 roblox executor, with a fantastic UI and easy to use.</p>
-        <a href="#" class="btn-primary">Download Now</a>
-        <a href="https://discord.gg/gWt4vn5sVZ" class="btn-secondary" target="_blank">Join Discord</a>
+        <img src="LogoPng.png" alt="Xenon Logo" class="logo">
+        <h2 class="sub-text">Level 7 Executor</h2>
+        <p class="description">The newest scripting utility. Simple, clean, and straightforward.</p>
+        <div class="executor"></div>
+        <div class="buttons">
+            <a href="#" class="btn download"><i class="fas fa-download"></i> Download</a>
+            <a href="https://discord.gg/A4m5w87jQG" target="_blank" class="btn discord"><i class="fab fa-discord"></i> Discord</a>
+            <a href="https://linkvertise.com/1217283/xenon-key?o=sharing" target="_blank" class="btn key-system"><i class="fas fa-key"></i> Key System</a>
+        </div>
     </div>
-    </footer>
+    <div class="bottom-info">
+        <p>This executor is <span class="highlight">unequivocally</span> the <span class="highlight">best</span> among all the <span class="highlight">free executors</span> available on the market. With <span class="highlight">superior UNC</span> compared to <span class="highlight">Celery</span> and <span class="highlight">Solara</span>, users can rest assured there are no concerns about subpar execution methods.</p>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.clientX) / 25;
+            const y = (window.innerHeight / 2 - e.clientY) / 25;
+            container.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${-x}deg)`;
+        });
+
+        document.addEventListener('click', (e) => {
+            const effects = document.querySelector('.mouse-effects');
+            const div = document.createElement('div');
+            div.style.left = `${e.clientX}px`;
+            div.style.top = `${e.clientY}px`;
+            effects.appendChild(div);
+            setTimeout(() => div.remove(), 1500);
+        });
+    </script>
 </body>
 </html>
